@@ -1,0 +1,23 @@
+services:
+  docling-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.docling
+    volumes:
+      - .:/app
+      # AI 모델 데이터를 로컬에 저장하여 재실행 시 속도 향상
+      - ./models:/app/models
+    environment:
+      - HF_HOME=/app/models
+  upstage-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.upstage
+    volumes:
+      - .:/app
+  google-doc-ai-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.google_doc_ai
+    volumes:
+      - .:/app

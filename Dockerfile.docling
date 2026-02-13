@@ -1,0 +1,30 @@
+# 안정적인 파이썬 3.11 이미지 사용
+FROM python:3.11-slim
+
+# 시스템 의존성 설치
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    # libgl1-mesa-glx 대신 아래 패키지 사용
+    libgl1 \
+    libglib2.0-0 \
+    # PDF 및 이미지 처리를 위한 추가 의존성
+    libsm6 \
+    libxext6 \
+    libxrender-dev \
+    libmagic1 \
+    tesseract-ocr \
+    tesseract-ocr-kor \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# docling 및 필수 라이브러리 설치
+RUN pip install --no-cache-dir docling pandas tabulate
+
+# 실행 스크립트 복사
+COPY docling_test.py .
+
+# 모델 다운로드 캐시 경로
+# ENV HF_HOME=/app/models
+
+CMD ["python", "docling_test.py"]
