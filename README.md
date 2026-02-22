@@ -37,6 +37,7 @@ docker compose run google-doc-ai-app python google_doc_ai_test.py {pdf_file_path
 ```
 
 ### - [MinerU Test](/MinerU)
+* Refer to [README_CUSTOM.md](/MinerU/README_CUSTOM.md)
 
 ---
 
