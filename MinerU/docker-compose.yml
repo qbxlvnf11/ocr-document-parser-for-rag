@@ -1,0 +1,22 @@
+services:
+  mineru-demo:
+    build:
+      context: .
+      dockerfile: docker/global/Dockerfile
+    container_name: mineru-demo-run
+    volumes:
+      - .:/app
+    working_dir: /app
+    environment:
+      - MINERU_MODEL_SOURCE=local
+      - BACKEND=pipeline
+      - LANG=korean
+      - METHOD=auto
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+    command: python3 demo.py

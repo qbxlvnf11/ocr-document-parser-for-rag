@@ -4,6 +4,7 @@
 * [Upstage Doc Parser API Details](https://console.upstage.ai/api/document-digitization/document-parsing)
 * [Google Document AI v1beta3](https://docs.cloud.google.com/document-ai/docs/reference/rpc/google.cloud.documentai.v1beta3)
 * [Google Document AI Layout Parse](https://docs.cloud.google.com/document-ai/docs/layout-parse-quickstart#python)
+* [MinerU](https://github.com/opendatalab/MinerU)
 
 ### - Environment Configuration
 * The script relies on a .env file located in the project root. Create a file named .env and include the following variables:
@@ -34,6 +35,8 @@ docker compose run upstage-app python upstage_test.py {pdf_file_path}
 ```bash
 docker compose run google-doc-ai-app python google_doc_ai_test.py {pdf_file_path}
 ```
+
+### - [MinerU Test](/MinerU)
 
 ---
 
